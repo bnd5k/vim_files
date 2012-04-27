@@ -47,12 +47,12 @@ endif
 " Keymaps
 
 nmap , \
-map <Leader>t :CommandT<CR>
-map <Leader>nt :NERDTreeToggle<CR>
+map <silent> <LocalLeader>nt :NERDTreeToggle<CR>
 map <silent> <LocalLeader>nr :NERDTree<CR>
 map <silent> <LocalLeader>nf :NERDTreeFind<CR>
 map <silent> <LocalLeader>nh :nohls<CR>
-map <Leader>cf :CommandTFlush<CR>
+map <silent> <LocalLeader>t :CommandT<CR>
+map <silent> <LocalLeader>cf :CommandTFlush<CR>
 imap <C-L> <SPACE>=><SPACE>
 
 function! Trim()
