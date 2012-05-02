@@ -53,6 +53,7 @@ map <silent> <LocalLeader>nf :NERDTreeFind<CR>
 map <silent> <LocalLeader>nh :nohls<CR>
 map <silent> <LocalLeader>t :CommandT<CR>
 map <silent> <LocalLeader>cf :CommandTFlush<CR>
+map <silent> <LocalLeader>cb :CommandTBuffer<CR>
 imap <C-L> <SPACE>=><SPACE>
 
 function! Trim()
@@ -64,3 +65,6 @@ endfunction
 
 command! -nargs=0 Trim :call Trim()
 nnoremap <silent> <Leader>tw :Trim<CR>
+
+let g:CommandTCancelMap=['<Esc>', '<C-c>']
+let g:CommandTMaxHeight=10
