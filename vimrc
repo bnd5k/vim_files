@@ -83,7 +83,7 @@ let g:CommandTCancelMap=['<Esc>', '<C-c>']
 let g:CommandTMaxHeight=10
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-RUNNING TESTS
+" RUNNING TESTS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <leader>r :call RunTestFile()<cr>
 map <leader>R :call RunNearestTest()<cr>
