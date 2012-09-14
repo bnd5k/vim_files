@@ -23,6 +23,7 @@ set cursorline
 set wrap
 set noswapfile
 set bs=2
+set wildignore+=reports/**
 
 set winwidth=90
 set winminwidth=15
