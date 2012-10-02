@@ -76,7 +76,7 @@ function! Trim()
 endfunction
 
 command! -nargs=0 Trim :call Trim()
-nnoremap <silent> <Leader>tw :Trim<CR>
+nnoremap <silent> <Leader>rw :Trim<CR>
 
 let g:CommandTAcceptSelectionSplitMap=['<C-s>']
 let g:CommandTAcceptSelectionVSplitMap=['<C-v>']
