@@ -38,11 +38,11 @@ set bs=2
 
 set wildignore+=reports/**
 
-set winwidth=90
-set winminwidth=15
-set winheight=5
-set winminheight=5
-set winheight=999
+"set winwidth=90
+"set winminwidth=15
+"set winheight=5
+"set winminheight=5
+"set winheight=999
 
 " Highlight trailing whitespace
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
@@ -89,7 +89,7 @@ noremap <leader>P :set paste<CR>"*P<CR>:set nopaste<CR>
 vnoremap <leader>y "*ygv
 
 " clean trailing whitespace
-nnoremap <leader>w mz:%s/\s\+$//<cr>:let @/=''<cr>`z
+nnoremap <leader>ww mz:%s/\s\+$//<cr>:let @/=''<cr>`z
 
 " emacs bindings in command line mode
 cnoremap <c-a> <home>
