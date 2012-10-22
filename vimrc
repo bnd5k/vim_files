@@ -88,6 +88,12 @@ noremap <leader>p :set paste<CR>"*p<CR>:set nopaste<CR>
 noremap <leader>P :set paste<CR>"*P<CR>:set nopaste<CR>
 vnoremap <leader>y "*ygv
 
+" better j,k
+noremap j gj
+noremap k gk
+noremap gj j
+noremap gk k
+
 " clean trailing whitespace
 nnoremap <leader>ww mz:%s/\s\+$//<cr>:let @/=''<cr>`z
 
