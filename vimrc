@@ -58,6 +58,9 @@ autocmd BufRead,InsertEnter,InsertLeave * 2match LineLengthError /\%126v.*/
 highlight LineLengthError ctermbg=black guibg=black
 autocmd ColorScheme * highlight LineLengthError ctermbg=black guibg=black
 
+" set quickfix window to appear after grep invocation
+autocmd QuickFixCmdPost *grep* cwindow
+
 :set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
 
 if &t_Co == 256
