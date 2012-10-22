@@ -29,7 +29,7 @@ set incsearch
 set showmatch
 set hlsearch
 noremap <silent> <leader><space> :noh<cr>:call clearmatches()<cr>
-nnoremap <leader>a :Ack<space>
+nnoremap <leader>aa :Ack<space>
 
 set cursorline
 set wrap
