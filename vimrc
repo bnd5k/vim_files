@@ -5,31 +5,41 @@ filetype off
 call pathogen#infect()
 filetype plugin indent on
 
+set encoding=utf-8
+set autoindent
+set nosmartindent
 set history=10000
 set number
-set showmatch
-set incsearch
-set hlsearch
 set background=dark
 set hidden
 set backspace=indent,eol,start
 set textwidth=0
+
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set expandtab
-set ignorecase smartcase
+
+nnoremap / /\v
+vnoremap / /\v
+set ignorecase
+set smartcase
+set gdefault
+set incsearch
+set showmatch
+set hlsearch
+noremap <silent> <leader><space> :noh<cr>:call clearmatches()<cr>
+nnoremap <leader>a :Ack<space>
+
 set cursorline
 set wrap
 set noswapfile
 set bs=2
+
 set wildignore+=reports/**
 
 set winwidth=90
 set winminwidth=15
-" We have to have a winheight bigger than we want to set winminheight. But if
-" we set winheight to be huge before winminheight, the winminheight set will
-" fail.
 set winheight=5
 set winminheight=5
 set winheight=999
@@ -60,7 +70,6 @@ nmap , \
 map <silent> <LocalLeader>nt :NERDTreeToggle<CR>
 map <silent> <LocalLeader>nr :NERDTree<CR>
 map <silent> <LocalLeader>nf :NERDTreeFind<CR>
-map <silent> <LocalLeader>nh :nohls<CR>
 map <silent> <LocalLeader>t :CommandT<CR>
 map <silent> <LocalLeader>cf :CommandTFlush<CR>
 map <silent> <LocalLeader>cb :CommandTBuffer<CR>
@@ -68,24 +77,42 @@ map <silent> <LocalLeader>cj :CommandTJump<CR>
 map <silent> <LocalLeader>ct :CommandTTag<CR>
 imap <C-L> <SPACE>=><SPACE>
 
-function! Trim()
-  exe "normal mz"
-  %s/\s*$//
-  exe "normal `z"
-  exe "normal zz"
-endfunction
-
-command! -nargs=0 Trim :call Trim()
-nnoremap <silent> <Leader>rw :Trim<CR>
-
 let g:CommandTAcceptSelectionSplitMap=['<C-s>']
 let g:CommandTAcceptSelectionVSplitMap=['<C-v>']
 let g:CommandTCancelMap=['<Esc>', '<C-c>']
 let g:CommandTMaxHeight=10
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" RUNNING TESTS
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" copy and paste to clipboard
+noremap <leader>y "*y
+noremap <leader>p :set paste<CR>"*p<CR>:set nopaste<CR>
+noremap <leader>P :set paste<CR>"*P<CR>:set nopaste<CR>
+vnoremap <leader>y "*ygv
+
+" clean trailing whitespace
+nnoremap <leader>w mz:%s/\s\+$//<cr>:let @/=''<cr>`z
+
+" emacs bindings in command line mode
+cnoremap <c-a> <home>
+cnoremap <c-e> <end>
+
+" keep the cursor in place while joining lines
+nnoremap J mzJ`z
+
+" split line
+nnoremap S i<cr><esc>^mwgk:silent! s/\v +$//<cr>:noh<cr>`w
+
+" disable help
+inoremap <F1> <ESC>
+nnoremap <F1> <ESC>
+vnoremap <F1> <ESC>
+
+" HTML tag folding
+nnoremap <leader>ft Vatzf
+
+" CSS properties sorting
+nnoremap <leader>S ?{<CR>jV/^\s*\}?$<CR>k:sort<CR>:noh<CR>
+
+" key mappings for running tests
 map <leader>r :call RunTestFile()<cr>
 map <leader>R :call RunNearestTest()<cr>
 map <leader>a :call RunTests('')<cr>
