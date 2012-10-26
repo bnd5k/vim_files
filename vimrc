@@ -20,8 +20,6 @@ set shiftwidth=2
 set softtabstop=2
 set expandtab
 
-nnoremap / /\v
-vnoremap / /\v
 set ignorecase
 set smartcase
 set gdefault
@@ -38,11 +36,11 @@ set bs=2
 
 set wildignore+=reports/**
 
-"set winwidth=90
-"set winminwidth=15
-"set winheight=5
-"set winminheight=5
-"set winheight=999
+set winwidth=90
+set winminwidth=15
+set winheight=5
+set winminheight=5
+set winheight=999
 
 " Highlight trailing whitespace
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
